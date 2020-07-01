@@ -13,7 +13,7 @@ import { reducers } from './reducers';
 import { MediaContainerComponent } from './components/media-container/media-container.component';
 import { MediaEntryComponent } from './components/media-entry/media-entry.component';
 import { MediaListComponent } from './components/media-list/media-list.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,8 @@ import { MediaListComponent } from './components/media-list/media-list.component
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
