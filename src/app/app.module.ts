@@ -15,6 +15,9 @@ import { MediaEntryComponent } from './components/media-entry/media-entry.compon
 import { MediaListComponent } from './components/media-list/media-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { MediaEffects } from './effects/media.effects';
+import { ErrorDisplayComponent } from './components/error-display/error-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     CounterComponent,
     MediaContainerComponent,
     MediaEntryComponent,
-    MediaListComponent
+    MediaListComponent,
+    ErrorDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    EffectsModule.forRoot([MediaEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

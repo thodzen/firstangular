@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './reducers';
+import { applicationStarted } from './actions/app.actions';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Shopping List';
+  title = 'Angular Project';
+
+  constructor(private store: Store<AppState>) {
+    store.dispatch(applicationStarted());
+  }
 
   doIt(): void {
     this.title = this.title.toUpperCase();
